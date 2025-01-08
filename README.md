@@ -2,7 +2,7 @@
 
 This is a single-vendor e-commerce web application developed using Laravel 10. The application was created as part of the Software Engineering Degree Program at the Java Institute for Advanced Technology.
 
-Its features include allowing users to browse products, make purchases, and manage their orders while processing payments. On the vendor side, the application enables the vendor to manage products, orders, payments, customers, shipping, returns, reports, and staff, including the ability to invite staff members to access the backend.This is a single-vendor e-commerce web application developed using Laravel 10.
+Its main features allow users to browse products, make purchases, and manage their orders, including payment processing. On the vendor side, the application enables vendors to manage products, orders, payments, customers, shipping, returns, reports, and staff, as well as invite staff members to access the backend.
 
 ## Built With
 
