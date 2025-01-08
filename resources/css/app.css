@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Remove Increment Buttons on Number Inputs */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    input[type="number"] {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        -moz-appearance: textfield !important;
+    }
+}
+
+/* Embla CSS */
+.embla {
+    /* 48rem */
+    max-width: 28rem;
+    margin: auto;
+    /* 19rem */
+    --slide-height: 25rem;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
+}
+.embla__viewport {
+    overflow: hidden;
+}
+.embla__container {
+    backface-visibility: hidden;
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+}
+.embla__slide__number {
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    border-radius: 1.8rem;
+    font-size: 4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--slide-height);
+    user-select: none;
+}
+.embla-thumbs {
+    --thumbs-slide-spacing: 0.8rem;
+    --thumbs-slide-height: 6rem;
+    margin-top: var(--thumbs-slide-spacing);
+}
+.embla-thumbs__viewport {
+    overflow: hidden;
+}
+.embla-thumbs__container {
+    display: flex;
+    flex-direction: row;
+    margin-left: calc(var(--thumbs-slide-spacing) * -1);
+}
+.embla-thumbs__slide {
+    flex: 0 0 22%;
+    min-width: 0;
+    padding-left: var(--thumbs-slide-spacing);
+    /* I include the new rule */
+    margin-right: 35px;
+}
+@media (min-width: 576px) {
+    .embla-thumbs__slide {
+        flex: 0 0 15%;
+    }
+}
+.embla-thumbs__slide__number {
+    border-radius: 1.8rem;
+    -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--detail-high-contrast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--thumbs-slide-height);
+    /* width: 100%; */
+    width: 6rem;
+}
+.embla-thumbs__slide--selected .embla-thumbs__slide__number {
+    color: var(--text-body);
+}
+
+/* Badges */
+.badge-info {
+    @apply inline-flex items-center rounded-md capitalize bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10;
+}
+.badge-danger {
+    @apply inline-flex items-center rounded-md capitalize bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10;
+}
+.badge-warning {
+    @apply inline-flex items-center rounded-md capitalize bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20;
+}
+.badge-success {
+    @apply inline-flex items-center rounded-md capitalize bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20;
+}
+
+.ProseMirror:focus {
+    outline: none;
+}
+
+.tiptap ul p,
+.tiptap ol p {
+    display: inline;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+    font-size: 14px;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+}
