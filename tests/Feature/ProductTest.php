@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Feature;
+
 use App\Models\Collection;
 use App\Models\Product;
 use App\Models\User;
