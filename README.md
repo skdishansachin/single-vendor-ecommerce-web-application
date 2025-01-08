@@ -1,125 +1,143 @@
-<?php if ($products->hasPages()): ?>
-                        <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
-                            <div class="flex justify-between flex-1 sm:hidden">
-                                <?php if ($products->onFirstPage()): ?>
-                                    <span
-                                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
-                                        Previous
-                                    </span>
-                                <?php else: ?>
-                                    <a href="<?= $products->previousPageUrl() ?>"
-                                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                                        Previous
-                                    </a>
-                                <?php endif; ?>
+# Single Vendor Ecommerce Web Application
 
-                                <?php if ($products->hasMorePages()): ?>
-                                    <a href="<?= $products->nextPageUrl() ?>"
-                                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                                        Next
-                                    </a>
-                                <?php else: ?>
-                                    <span
-                                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
-                                        Next
-                                    </span>
-                                <?php endif; ?>
-                            </div>
+This is a single-vendor e-commerce web application built using Laravel 10. This application was developed as part of the Software Engineering Degree Program at the Java Institute for Advanced Technology. The application requirements are to allow users to browse products, buy products, and manage their orders, while processing payments. On the vendor side, the vendor should be able to manage products, orders, payments, customers, shipping, returns, reports, and staff by inviting them to the backend.
 
-                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                                <div>
-                                    <p class="text-sm text-gray-700 leading-5">
-                                        Showing
-                                        <?php if ($products->firstItem()): ?>
-                                            <span class="font-medium"><?= $products->firstItem() ?></span>
-                                            to
-                                            <span class="font-medium"><?= $products->lastItem() ?></span>
-                                        <?php else: ?>
-                                            <?= $products->count() ?>
-                                        <?php endif; ?>
-                                        of
-                                        <span class="font-medium"><?= $products->total() ?></span>
-                                        results
-                                    </p>
-                                </div>
+## Built With
 
-                                <div>
-                                    <span class="relative z-0 inline-flex rtl:flex-row-reverse shadow-sm rounded-md">
-                                        <?php if ($products->onFirstPage()): ?>
-                                            <span aria-disabled="true" aria-label="Previous">
-                                                <span
-                                                    class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md leading-5"
-                                                    aria-hidden="true">
-                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd"
-                                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                            clip-rule="evenodd" />
-                                                    </svg>
-                                                </span>
-                                            </span>
-                                        <?php else: ?>
-                                            <a href="<?= $products->previousPageUrl() ?>" rel="prev"
-                                                class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-                                                aria-label="Previous">
-                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </a>
-                                        <?php endif; ?>
+- Laravel 10
+- MySQL 8 (SQLite for development)
+- Tailwind CSS
+- Stripe (Payment Gateway)
+- Gmail (Transactional Email)
 
-                                        <?php foreach ($products->items() as $element): ?>
-                                            <?php if (is_string($element)): ?>
-                                                <span aria-disabled="true">
-                                                    <span
-                                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 cursor-default leading-5"><?= $element ?></span>
-                                                </span>
-                                            <?php endif; ?>
+## Installation
 
-                                            <?php if (is_array($element)): ?>
-                                                <?php foreach ($element as $page => $url): ?>
-                                                    <?php if ($page == $products->currentPage()): ?>
-                                                        <span aria-current="page">
-                                                            <span
-                                                                class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5"><?= $page ?></span>
-                                                        </span>
-                                                    <?php else: ?>
-                                                        <a href="<?= $url ?>"
-                                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                                                            aria-label="Go to page <?= $page ?>">
-                                                            <?= $page ?>
-                                                        </a>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
+1. Clone the repository
+   ```sh
+   git clone git@bitbucket.org:skdishansachin/single-vendor-ecommerce.git
+   ```
 
-                                        <?php if ($products->hasMorePages()): ?>
-                                            <a href="<?= $products->nextPageUrl() ?>" rel="next"
-                                                class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-                                                aria-label="Next">
-                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </a>
-                                        <?php else: ?>
-                                            <span aria-disabled="true" aria-label="Next">
-                                                <span
-                                                    class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default rounded-r-md leading-5"
-                                                    aria-hidden="true">
-                                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd"
-                                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                            clip-rule="evenodd" />
-                                                    </svg>
-                                                </span>
-                                            </span>
-                                        <?php endif; ?>
-                                    </span>
-                                </div>
-                            </div>
-                        </nav>
-                    <?php endif; ?>
+2. Install Composer dependencies
+   ```sh
+    composer install
+    ```
+
+3. Install NPM dependencies
+    ```sh
+     npm install
+     ```
+
+4. Create a copy of your .env file
+    ```sh
+    cp .env.example .env
+    ```
+
+5. Generate an app encryption key
+    ```sh
+    php artisan key:generate
+    ```
+
+6. Run the database migrations
+    ```sh
+    php artisan migrate
+    ```
+
+7. Create a symbolic link
+    ```sh
+    php artisan storage:link
+    ```
+
+8. Create an admin user (checkout the `routes/console.php` command)
+    ```
+    php artisan user:create
+    ```
+
+9. Start the development server
+    ```sh
+    php artisan serve
+    ```
+
+## Testing
+
+1. Run the test
+    ```sh
+    php artisan test
+    ```
+
+Tests are located in the `tests/Feature` directory and using PHPUnit for testing.
+
+## Routes
+
+You can find the list of routes in the `routes/web.php` and `routes/auth.php` files. You also can run `artisan route:list`. Here are the list of routes:
+
+| Method    | Path                                    | Description                                      |
+|-----------|-----------------------------------------|--------------------------------------------------|
+| GET       | /                                       | Home page                                        |
+| GET       | cart/                                   | View the shopping cart                           |
+| POST      | cart/                                   | Add item to the cart                             |
+| PUT       | cart/                                   | Update cart item                                 |
+| DELETE    | cart/product/                           | Remove product from cart                         |
+| POST      | checkout/                               | Handle the checkout process                      |
+| GET       | checkout/cancel/                        | Cancel the checkout                              |
+| GET       | checkout/error/                         | Checkout error page                              |
+| GET       | checkout/success/                       | Checkout success page                            |
+| GET       | collections/                            | View all collections                             |
+| GET       | collections/{collection}/               | View specific collection                         |
+| GET       | dashboard/                              | Dashboard overview                               |
+| GET       | dashboard/collections/                  | View all collections (admin)                     |
+| POST      | dashboard/collections/                  | Create a new collection                          |
+| GET       | dashboard/collections/create/           | Create a new collection (form)                   |
+| GET       | dashboard/collections/{collection}/     | View specific collection (admin)                 |
+| PUT|PATCH  | dashboard/collections/{collection}/     | Update collection details                        |
+| DELETE    | dashboard/collections/{collection}/     | Delete a collection                              |
+| GET       | dashboard/forgot-password/              | Forgot password form                             |
+| GET       | dashboard/invitations/                  | View invitations                                 |
+| POST      | dashboard/invitations/                  | Create new invitation                            |
+| GET       | dashboard/invitations/create/           | Create new invitation form                       |
+| GET       | dashboard/invitations/{invitation}/     | View specific invitation                         |
+| PUT       | dashboard/invitations/{invitation}/cancel | Cancel invitation                               |
+| PUT       | dashboard/invitations/{invitation}/resend | Resend invitation                               |
+| GET       | dashboard/login/                        | Admin login page                                 |
+| POST      | dashboard/login/                        | Admin login submit                               |
+| POST      | dashboard/logout/                       | Admin logout                                     |
+| GET       | dashboard/notifications/                | View notifications                               |
+| POST      | dashboard/order/{order}/refund/         | Refund an order                                  |
+| GET       | dashboard/orders/                       | View all orders (admin)                          |
+| GET       | dashboard/orders/{order}/               | View specific order (admin)                      |
+| PUT       | dashboard/orders/{order}/               | Update order (admin)                             |
+| GET       | dashboard/products/                     | View all products                                |
+| POST      | dashboard/products/                     | Add a new product                                |
+| GET       | dashboard/products/create/              | Create new product form                          |
+| GET       | dashboard/products/{product}/           | View specific product                            |
+| PUT|PATCH  | dashboard/products/{product}/           | Update product details                           |
+| DELETE    | dashboard/products/{product}/           | Delete product                                   |
+| GET       | dashboard/products/{product}/edit/      | Edit product details                             |
+| GET       | dashboard/profile/                      | Edit profile details                             |
+| PATCH     | dashboard/profile/                      | Update profile                                   |
+| POST      | dashboard/register/                     | Register new user                                |
+| GET       | dashboard/register/{token}/             | Register with token                              |
+| GET       | dashboard/shipping/                     | View all shipping methods                        |
+| POST      | dashboard/shipping/                     | Add new shipping method                          |
+| GET       | dashboard/shipping/create/              | Create new shipping method form                  |
+| PUT       | dashboard/shipping/{shipping}/          | Update shipping method                           |
+| GET       | dashboard/shipping/{shipping}/edit/     | Edit shipping method                             |
+| GET       | dashboard/users/                        | View all users (admin)                           |
+| GET       | dashboard/users/{user}/                 | View specific user                               |
+| PUT       | dashboard/users/{user}/                 | Update user details                              |
+| GET       | forgot-password/                        | Forgot password form                             |
+| POST      | forgot-password/                        | Send password reset email                        |
+| GET       | login/                                  | Login page                                       |
+| POST      | login/                                  | Login submit                                     |
+| POST      | logout/                                 | Logout                                           |
+| GET       | orders/                                 | View user orders                                 |
+| PUT       | password/                               | Update password                                  |
+| GET       | products/{product}/                     | View product details                             |
+| GET       | profile/                                | Edit user profile                                |
+| PATCH     | profile/                                | Update user profile                              |
+| DELETE    | profile/                                | Delete user profile                              |
+| GET       | register/                               | Registration page                                |
+| POST      | register/                               | Register new user                                |
+| POST      | reset-password/                         | Reset password                                   |
+| GET       | reset-password/{token}/                 | Reset password form with token                   |
+| GET       | search/                                 | Search products                                  |
+| POST      | stripe/webhook/                         | Handle Stripe webhook                            |
