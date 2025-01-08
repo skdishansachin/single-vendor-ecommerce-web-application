@@ -59,6 +59,8 @@ Its main features allow users to browse products, make purchases, and manage the
     php artisan serve
     ```
 
+You can [create a Stripe account](https://dashboard.stripe.com/register) and get the API keys to test the payment processing. You can also use the [Stripe test card](https://docs.stripe.com/testing) numbers to test the payment processing.
+
 ## Testing
 
 1. Run the test
