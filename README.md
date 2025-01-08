@@ -13,36 +13,43 @@ This is a single-vendor e-commerce web application built using Laravel 10. This 
 ## Installation
 
 1. Clone the repository
+   
    ```sh
    git clone git@bitbucket.org:skdishansachin/single-vendor-ecommerce.git
    ```
 
 2. Install Composer dependencies
+   
    ```sh
     composer install
     ```
 
 3. Install NPM dependencies
+    
     ```sh
      npm install
      ```
 
 4. Create a copy of your .env file
+    
     ```sh
     cp .env.example .env
     ```
 
 5. Generate an app encryption key
+    
     ```sh
     php artisan key:generate
     ```
 
 6. Run the database migrations
+    
     ```sh
     php artisan migrate
     ```
 
 7. Create a symbolic link
+    
     ```sh
     php artisan storage:link
     ```
@@ -53,6 +60,7 @@ This is a single-vendor e-commerce web application built using Laravel 10. This 
     ```
 
 9. Start the development server
+    
     ```sh
     php artisan serve
     ```
@@ -60,6 +68,7 @@ This is a single-vendor e-commerce web application built using Laravel 10. This 
 ## Testing
 
 1. Run the test
+    
     ```sh
     php artisan test
     ```
