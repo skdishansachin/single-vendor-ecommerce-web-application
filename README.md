@@ -61,6 +61,8 @@ Its main features allow users to browse products, make purchases, and manage the
 
 You can [create a Stripe account](https://dashboard.stripe.com/register) and get the API keys to test the payment processing. You can also use the [Stripe test card](https://docs.stripe.com/testing) numbers to test the payment processing.
 
+Refer to the [Stripe documentation](https://docs.stripe.com/webhooks/quickstart) to set up the webhook for the payment processing events locally.
+
 ## Testing
 
 1. Run the test
