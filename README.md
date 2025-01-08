@@ -1,6 +1,8 @@
 # Single Vendor Ecommerce Web Application
 
-This is a single-vendor e-commerce web application built using Laravel 10. This application was developed as part of the Software Engineering Degree Program at the Java Institute for Advanced Technology. The application requirements are to allow users to browse products, buy products, and manage their orders, while processing payments. On the vendor side, the vendor should be able to manage products, orders, payments, customers, shipping, returns, reports, and staff by inviting them to the backend.
+This is a single-vendor e-commerce web application developed using Laravel 10. The application was created as part of the Software Engineering Degree Program at the Java Institute for Advanced Technology.
+
+Its features include allowing users to browse products, make purchases, and manage their orders while processing payments. On the vendor side, the application enables the vendor to manage products, orders, payments, customers, shipping, returns, reports, and staff, including the ability to invite staff members to access the backend.This is a single-vendor e-commerce web application developed using Laravel 10.
 
 ## Built With
 
