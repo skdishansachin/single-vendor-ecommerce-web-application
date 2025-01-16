@@ -12,7 +12,7 @@ class ProductDetailsPageTest extends TestCase
 
     protected Product $product;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->product = Product::factory()->create();
