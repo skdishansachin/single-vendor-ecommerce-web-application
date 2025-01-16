@@ -38,7 +38,7 @@ importers:
         version: 1.7.2
       laravel-vite-plugin:
         specifier: ^1.0
-        version: 1.0.5(vite@5.3.5)
+        version: 1.0.5(vite@5.3.6)
       postcss:
         specifier: ^8.4.38
         version: 8.4.40
@@ -46,8 +46,8 @@ importers:
         specifier: ^3.4.4
         version: 3.4.7
       vite:
-        specifier: ^5.0
-        version: 5.3.5
+        specifier: ^5.3
+        version: 5.3.6
 
 packages:
 
@@ -1052,8 +1052,8 @@ packages:
   vite-plugin-full-reload@1.2.0:
     resolution: {integrity: sha512-kz18NW79x0IHbxRSHm0jttP4zoO9P9gXh+n6UTwlNKnviTTEpOlum6oS9SmecrTtSr+muHEn5TUuC75UovQzcA==}
 
-  vite@5.3.5:
-    resolution: {integrity: sha512-MdjglKR6AQXQb9JGiS7Rc2wC6uMjcm7Go/NHNO63EwiJXfuk9PgqiP/n5IDJCziMkfw9n4Ubp7lttNwz+8ZVKA==}
+  vite@5.3.6:
+    resolution: {integrity: sha512-es78AlrylO8mTVBygC0gTC0FENv0C6T496vvd33ydbjF/mIi9q3XQ9A3NWo5qLGFKywvz10J26813OkLvcQleA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -1654,10 +1654,10 @@ snapshots:
 
   jiti@1.21.6: {}
 
-  laravel-vite-plugin@1.0.5(vite@5.3.5):
+  laravel-vite-plugin@1.0.5(vite@5.3.6):
     dependencies:
       picocolors: 1.0.1
-      vite: 5.3.5
+      vite: 5.3.6
       vite-plugin-full-reload: 1.2.0
 
   lilconfig@2.1.0: {}
@@ -2072,7 +2072,7 @@ snapshots:
       picocolors: 1.0.1
       picomatch: 2.3.1
 
-  vite@5.3.5:
+  vite@5.3.6:
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.40
