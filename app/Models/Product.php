@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,6 +15,15 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
+/**
+ * @property-read string name
+ * @property-read string slug
+ * @property-read string description
+ * @property-read float price
+ * @property-read int available
+ * @property-read DateTime created_at
+ * @property-read DateTime updated_at
+ */
 class Product extends Model implements HasMedia
 {
     use HasFactory, HasSlug, HasUlids, InteractsWithMedia;
@@ -40,7 +50,7 @@ class Product extends Model implements HasMedia
     public function formattedPrice(): Attribute
     {
         return Attribute::make(
-            get: fn () => Number::currency($this->price, 'LKR')
+            get: fn() => Number::currency($this->price, 'LKR')
         )->shouldCache();
     }
 
