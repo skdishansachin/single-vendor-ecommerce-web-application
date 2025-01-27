@@ -13,7 +13,8 @@ use Illuminate\Support\Str;
 
 class Order extends Model
 {
-    use HasFactory, HasUlids;
+    use HasFactory;
+    use HasUlids;
 
     protected $guarded = [];
 

@@ -21,7 +21,7 @@ class AuthenticatedSessionController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'email' => ['required', 'email', new CheckCustomerRole],
+            'email' => ['required', 'email', new CheckCustomerRole()],
             'password' => ['required', 'string'],
         ]);
 

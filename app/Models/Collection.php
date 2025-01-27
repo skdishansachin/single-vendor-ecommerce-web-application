@@ -13,7 +13,10 @@ use Spatie\Sluggable\SlugOptions;
 
 class Collection extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasUlids, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasUlids;
+    use InteractsWithMedia;
 
     protected $guarded = [];
 

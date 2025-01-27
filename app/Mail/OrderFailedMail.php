@@ -11,7 +11,8 @@ use Illuminate\Queue\SerializesModels;
 
 class OrderFailedMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public Order $order;
 

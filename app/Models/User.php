@@ -11,7 +11,10 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, HasRoles, HasUlids, Notifiable;
+    use HasFactory;
+    use HasRoles;
+    use HasUlids;
+    use Notifiable;
 
     protected $guarded = [];
 

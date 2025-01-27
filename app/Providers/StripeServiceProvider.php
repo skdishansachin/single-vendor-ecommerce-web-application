@@ -14,7 +14,7 @@ class StripeServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(StripeService::class, function (Application $app) {
-            return new StripeService;
+            return new StripeService();
         });
     }
 

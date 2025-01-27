@@ -12,7 +12,8 @@ use Illuminate\Queue\SerializesModels;
 
 class OrderSuccessful extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public Order $order;
 

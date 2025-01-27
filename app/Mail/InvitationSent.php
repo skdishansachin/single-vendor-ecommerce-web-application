@@ -12,7 +12,8 @@ use Illuminate\Queue\SerializesModels;
 
 class InvitationSent extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -20,7 +21,8 @@ class InvitationSent extends Mailable implements ShouldQueue
     public function __construct(
         public Invitation $invitation,
         public string $signedUrl,
-    ) {}
+    ) {
+    }
 
     /**
      * Get the message envelope.

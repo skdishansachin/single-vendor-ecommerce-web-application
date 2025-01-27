@@ -26,7 +26,10 @@ use Spatie\Sluggable\SlugOptions;
  */
 class Product extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasUlids, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasUlids;
+    use InteractsWithMedia;
 
     protected $guarded = [];
 
@@ -50,7 +53,7 @@ class Product extends Model implements HasMedia
     public function formattedPrice(): Attribute
     {
         return Attribute::make(
-            get: fn() => Number::currency($this->price, 'LKR')
+            get: fn () => Number::currency($this->price, 'LKR')
         )->shouldCache();
     }
 

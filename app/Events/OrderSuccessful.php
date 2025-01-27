@@ -10,7 +10,9 @@ use Illuminate\Queue\SerializesModels;
 
 class OrderSuccessful
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     public Order $order;
 
