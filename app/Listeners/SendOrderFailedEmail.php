@@ -9,17 +9,6 @@ use Illuminate\Support\Facades\Mail;
 
 class SendOrderFailedEmail implements ShouldQueue
 {
-    /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     */
     public function handle(OrderFailed $event): void
     {
         Mail::to($event->order->user->email)

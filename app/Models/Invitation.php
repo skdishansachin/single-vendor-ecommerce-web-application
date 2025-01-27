@@ -12,7 +12,7 @@ class Invitation extends Model
     use HasFactory;
     use HasUlids;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     protected function casts(): array
     {
@@ -23,11 +23,6 @@ class Invitation extends Model
         ];
     }
 
-    /**
-     * Check if the invitation is valid.
-     *
-     * @return bool Returns true if the invitation is valid, false otherwise.
-     */
     public function valid(): bool
     {
         return $this->status === 'pending' && ! $this->expires_at->isPast();

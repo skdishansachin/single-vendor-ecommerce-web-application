@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
@@ -27,15 +24,12 @@ return new class extends Migration
             $table->string('line2')->nullable();
             $table->string('postal_code')->nullable();
             $table->string('state')->nullable();
-            $table->foreignUlid('cart_id')->constrained()->cascadeOnDelete();
-            $table->foreignUlid('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Cart::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('orders');

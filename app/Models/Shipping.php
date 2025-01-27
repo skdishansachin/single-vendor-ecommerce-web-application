@@ -11,7 +11,7 @@ class Shipping extends Model
     use HasFactory;
     use HasUlids;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     protected function casts(): array
     {

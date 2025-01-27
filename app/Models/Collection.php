@@ -18,7 +18,7 @@ class Collection extends Model implements HasMedia
     use HasUlids;
     use InteractsWithMedia;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function getSlugOptions(): SlugOptions
     {
@@ -35,6 +35,6 @@ class Collection extends Model implements HasMedia
 
     public function products(): HasMany
     {
-        return $this->hasMany(\App\Models\Product::class);
+        return $this->hasMany(Product::class);
     }
 }

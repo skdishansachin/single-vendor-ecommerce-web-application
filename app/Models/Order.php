@@ -16,7 +16,7 @@ class Order extends Model
     use HasFactory;
     use HasUlids;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function formattedId(): Attribute
     {

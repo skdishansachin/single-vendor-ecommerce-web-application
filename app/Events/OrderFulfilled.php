@@ -14,18 +14,10 @@ class OrderFulfilled
     use InteractsWithSockets;
     use SerializesModels;
 
-    public Order $order;
+    public function __construct(
+        public Order $order
+    ){}
 
-    public function __construct(Order $order)
-    {
-        $this->order = $order;
-    }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
-     */
     public function broadcastOn(): array
     {
         return [

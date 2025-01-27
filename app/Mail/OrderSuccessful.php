@@ -15,16 +15,10 @@ class OrderSuccessful extends Mailable implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
-    public Order $order;
+    public function __construct(
+        public Order $order
+    ){}
 
-    public function __construct(Order $order)
-    {
-        $this->order = $order;
-    }
-
-    /**
-     * Get the message envelope.
-     */
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -32,9 +26,6 @@ class OrderSuccessful extends Mailable implements ShouldQueue
         );
     }
 
-    /**
-     * Get the message content definition.
-     */
     public function content(): Content
     {
         return new Content(
@@ -42,11 +33,6 @@ class OrderSuccessful extends Mailable implements ShouldQueue
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
     public function attachments(): array
     {
         return [];

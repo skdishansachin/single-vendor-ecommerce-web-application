@@ -6,9 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         // Create the 'admin' role
@@ -81,9 +78,6 @@ return new class extends Migration
         $invitationRole->givePermissionTo($updateInvitationsPermission);
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Role::truncate();

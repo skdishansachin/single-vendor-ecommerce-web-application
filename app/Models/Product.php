@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\CarbonInterface;
 use DateTime;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
@@ -15,15 +16,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-/**
- * @property-read string name
- * @property-read string slug
- * @property-read string description
- * @property-read float price
- * @property-read int available
- * @property-read DateTime created_at
- * @property-read DateTime updated_at
- */
 class Product extends Model implements HasMedia
 {
     use HasFactory;

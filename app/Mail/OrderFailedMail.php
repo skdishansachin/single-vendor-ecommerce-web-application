@@ -14,16 +14,10 @@ class OrderFailedMail extends Mailable
     use Queueable;
     use SerializesModels;
 
-    public Order $order;
+    public function __construct(
+        public Order $order
+    ){}
 
-    public function __construct(Order $order)
-    {
-        $this->order = $order;
-    }
-
-    /**
-     * Get the message envelope.
-     */
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -31,21 +25,13 @@ class OrderFailedMail extends Mailable
         );
     }
 
-    /**
-     * Get the message content definition.
-     */
     public function content(): Content
     {
         return new Content(
             markdown: 'mail.order-failed-mail',
         );
     }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
+    
     public function attachments(): array
     {
         return [];

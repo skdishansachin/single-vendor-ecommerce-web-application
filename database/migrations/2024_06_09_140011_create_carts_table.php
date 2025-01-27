@@ -6,14 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->foreignUlid('user_id'); // INFO - Makeing this nullable able to implement guest cart
+            $table->foreignIdFor(\App\Models\User::class);
             $table->enum('type', ['cart', 'order'])->default('cart');
             $table->decimal('total', 10, 2)->default(0.00);
             $table->decimal('subtotal', 10, 2)->default(0.00);
@@ -22,8 +19,8 @@ return new class extends Migration
         });
 
         Schema::create('cart_product', function (Blueprint $table) {
-            $table->foreignUlid('cart_id')->constrained()->cascadeOnDelete();
-            $table->foreignUlid('product_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Cart::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Product::class)->constrained()->cascadeOnDelete();
             $table->decimal('purchase_price')->default(0.00);
             $table->integer('quantity')->default(1);
             $table->decimal('subtotal', 10, 2)->default(0.00);
@@ -32,9 +29,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('carts');

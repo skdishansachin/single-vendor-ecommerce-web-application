@@ -16,7 +16,7 @@ class User extends Authenticatable
     use HasUlids;
     use Notifiable;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     protected $hidden = [
         'password',
