@@ -21,8 +21,7 @@ class InvitationSent extends Mailable implements ShouldQueue
     public function __construct(
         public Invitation $invitation,
         public string $signedUrl,
-    ) {
-    }
+    ) {}
 
     /**
      * Get the message envelope.

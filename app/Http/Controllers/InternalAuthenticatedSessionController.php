@@ -19,7 +19,7 @@ class InternalAuthenticatedSessionController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'email' => ['required', 'email', new CheckStaff()],
+            'email' => ['required', 'email', new CheckStaff],
             'password' => ['required', 'string'],
         ]);
 

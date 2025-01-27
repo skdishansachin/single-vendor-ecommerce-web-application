@@ -10,8 +10,7 @@ class GuestLayout extends Component
 {
     public function __construct(
         public string $title
-    ) {
-    }
+    ) {}
 
     public function render(): View|Closure|string
     {
